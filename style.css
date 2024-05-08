@@ -1,0 +1,215 @@
+.button-1 {
+  background-color: #415865;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 36px;
+  line-height: 20px;
+  list-style: none;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: top;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 0 10px #415865);
+}
+.button-1:hover,
+.button-1:focus {
+  background-color: #7a9eb1;
+}
+#buttons-container{
+    margin: auto;
+    display: flex;
+    width: 300px;
+    padding-top: 8px;
+}
+
+#body{
+    background-color: #f9f8eb;
+}
+#view{
+    display: none;
+}
+#box{
+    display: flex;
+    min-width: 400px;
+}
+#table-container{
+    margin: auto;
+    width: 50%;
+    padding-bottom: 45px;
+}
+#table-container h1{
+    text-align: center;
+    color: #415865;
+    padding: 10px;
+}
+#table-container th{
+    color: #ffe1b6;
+    padding: 15px;
+    border-bottom: 2px solid #ffe1b6;
+}
+#dataTable td{
+    color: #7a9eb1;
+    border-bottom: 2px solid #f9f8eb;
+}
+#table{
+    filter: drop-shadow(0 0 10px #415865);
+    overflow: hidden;
+    border-radius: 20px;
+    min-width: 250px;
+}
+#chart-container{
+    filter: drop-shadow(0 0 20px #e8af5f);
+    height: 350px;
+    width: 95%;
+    position: relative;
+    background-color: #ffe1b6;
+    border-radius: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+}
+#chart-canvas{
+    max-height: 75%;
+}
+#stat-chart-container{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#statistic-container{
+    filter: drop-shadow(0 0 20px #e8af5f);
+    background-color: #ffe1b6;
+    width: 95%;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    margin: auto;
+    margin-top: 65px;
+}
+#statistic-container h1, h2, p{
+    color: #415865;
+    text-align: center;
+}
+#statistic-container h1{
+    text-align: center;
+    font-size: 2.3rem;
+}
+#statistic-container h2{
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+}
+#statistic-container p{
+    padding: 10px;
+}
+#explanation{
+    text-align: center;
+}
+#stat-text-container{
+    height: 180px;
+}
+#dropdown-menu-container{
+    width: 100%;
+    margin: auto;
+}
+.navbar-toggler{
+    display: none;
+}
+#navbar-container{
+    min-width: min-content;
+}
+#dropdownMenuButton{
+    width: 120px;
+}
+#timespan-container{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0 0 10px #415865);
+}
+#signaltype-container{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0 0 10px #415865);
+}
+#chart-text{
+    margin-top: 100px;
+    font-size: 2.3rem;
+}
+#dropdowns-container{
+    display: flex;
+}
+@media screen and (max-width:765px) {
+    #box{
+        display: flex;
+        flex-direction: column;
+    }
+    #body{
+        /*min-width: 350px;*/
+        min-width:min-content;
+    }
+    .navbar-toggler{
+        display: block;
+    }
+    #chart-text{
+        font-size: 2rem;
+    }
+    #stat-chart-container{
+        padding-top: 45px;
+        width: 80%;
+        margin: auto;
+    }
+    #statistic-container h1{
+        font-size: 2rem;
+    }
+    #statistic-container h2{
+        font-size: 20px;
+    }
+    #statistic-container{
+        height: 275px;
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+    #stat-text-container{
+        max-height:160px;
+    }
+    #dataTable td{
+        font-size: 16px;
+    }
+    #table-container{
+        width: 90%;
+    }
+    #table-container h1{
+        font-size: 25px;
+    }
+    #table-container th{
+        font-size: 15px;
+        padding: 10px;
+    }
+    #table td{
+        padding: 6px;
+    }
+    #table{
+        margin: auto;
+        width: 75%;
+    }
+}

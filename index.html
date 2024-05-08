@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Page</title>
+</head>
+<body id="body">
+  <div id="navbar-container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">SääSivu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Viimeiset 50</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="view2.html">Tuulen Nopeus</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="view3.html">Lämpötila</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="view4.html">Kärsimys Ryhmä</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div id="box">
+  <div id="stat-chart-container">
+    <div id="chart-container">
+      <h2 id="chart-text">Valitse signaali kaaviota varten</h2>
+      <canvas id="chart-canvas"></canvas>
+      <div id="dropdowns-container">
+        <div id="signaltype-container">
+          <h6>Valitse signaali:</h6>
+          <div class="dropdown-center">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtoN" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Signaali
+            </button>
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item" onclick="showSignalType(this), getSignalType(''), switchTimeSpan('limit/50')" >Viimeiset 50</button>
+              <button class="dropdown-item" onclick="showSignalType(this), getSignalType('temperature/'), switchTimeSpan('')">Lämpötila</button>
+              <button class="dropdown-item" onclick="showSignalType(this), getSignalType('wind_speed/'), switchTimeSpan('')">Tuulen nopeus</button>
+    
+            </div>
+          </div>
+        </div>
+        <div id="timespan-container">
+          <h6>Valitse aikaväli:</h6>
+          <div class="dropdown-center">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Aikaväli
+            </button>
+            <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton">
+              <button class="dropdown-item" onclick="showTimeSpan(this), switchTimeSpan('')">20 Lukemaa</button>
+              <button class="dropdown-item" onclick="showTimeSpan(this), switchTimeSpan('24')">24 Tuntia</button>
+              <button class="dropdown-item" onclick="showTimeSpan(this), switchTimeSpan('48')">48 Tuntia</button>
+              <button class="dropdown-item" onclick="showTimeSpan(this), switchTimeSpan('72')">72 Tuntia</button>
+              <button class="dropdown-item" onclick="showTimeSpan(this), switchTimeSpan('1week')">1 Viikko</button>
+              <button class="dropdown-item" onclick="showTimeSpan(this), switchTimeSpan('1month')">1 Kuukausi</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="statistic-container">
+      <div id="stat-text-container">
+        <h2 id="stat-h2"></h2>
+        <h1 id="stat">Valitse signaali tilastoja varten</h1>
+        <p id="explanation"></p>
+      </div>
+      <div id="dropdown-menu-container">
+        <div id="buttons-container">
+          <button class="button-1" role="button" onclick="switchStat(1)">Keskiarvo</button>
+          <button class="button-1" role="button" onclick="switchStat(2)">Mediaani</button>
+          <button class="button-1" role="button"onclick="switchStat(3)">Moodi</button>
+        </div>
+        <div id="buttons-container">
+          <button class="button-1" role="button" onclick="switchStat(4)">Vaihteluväli</button>
+          <button class="button-1" role="button" onclick="switchStat(5)">Keskihajonta</button>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div id="table-container">
+      <h1 id="table-titleee">Viimeiset 50 lukemaa: </h1>
+      <table class="table table-striped table-dark table-bordered" id="table">
+        <thead>
+          <tr>
+            <!--<th scope="col">ID</th>-->
+            <th scope="col">Paivamaara</th>
+            <th scope="col">Aika</th>
+            <th scope="col" id="th-data">Data</th>
+          </tr>
+        </thead>
+        <tbody id="dataTable"></tbody>
+      </table>
+    </div>
+  </div>
+    
+  </div>
+
+  <p id="view">1</p>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.2.1/dist/chart.umd.min.js"></script>
+  <script src="statistics.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
